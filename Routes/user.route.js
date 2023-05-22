@@ -1,0 +1,16 @@
+import express from "express";
+import { getUsers, createUser, login, showprofile, update, search, fogetpwd ,updatePwd} from "../Controllers/User.controller.js";
+import multer from "../Middleware/multer.js";
+const router = express.Router();
+/**
+ * @Path /users
+ */
+router.get("/", getUsers);
+router.post("/",multer("image"), createUser);
+router.post("/login", login);
+router.get("/show", showprofile);
+router.patch("/",multer("image"),update)
+router.patch("/changePwd",updatePwd)
+router.post("/search",search);
+router.post("/forgetpwd",fogetpwd)
+export default router;
