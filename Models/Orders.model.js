@@ -11,5 +11,5 @@ var OrderModel = Schema({
     busket: Boolean,
 }, { timestamps: true });
 
-const Order = model('Order', OrderModel);
-export default { Order };
+
+export default model('Order', OrderModel);

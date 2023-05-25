@@ -4,15 +4,15 @@ import {} from 'dotenv/config'
 
 
 export async function create(req, res) {
-    const Brands = new Brand({ ...req.body });
+    const brands = new Brand({ ...req.body });
     console.log({ ...req.body });
 
-    Brands.Brand_logo = `/img/${req.file.filename}`;
+    brands.Brand_logo = `/img/${req.file.filename}`;
 
-    await Brands.save();
+    await brands.save();
 
-    if (Brands)
-        res.status(200).json(Brands);
+    if (brands)
+        res.status(200).json(brands);
     else {
         res.status(400).json({ Message: "Can't create this Brand " });
     }

@@ -1,33 +1,38 @@
-import  Order  from "../Models/Order.model";
-require("dotenv").config();
+import  Order  from "../Models/Orders.model.js";
+import {} from 'dotenv/config'
 
 
 
 export async function create(req, res) {
-    const Orders = new Order({ ...req.body });
+    const orders = new Order({ ...req.body });
     console.log({ ...req.body });
 
-    Orders.photo = `/img/${req.file.filename}`;
+    orders.photo = `/img/${req.file.filename}`;
 
-    await Orders.save();
+    await orders.save();
 
-    if (Orders)
-        res.status(200).json(Orders);
+    if (orders)
+        res.status(200).json(orders);
     else {
         res.status(400).json({ Message: "Can't create this Order " });
     }
 }
 export async function getOrders(req, res) {
-    const Orders = await Order.find();
-    res.status(200).json(Orders);
+    Order.find({}).then(neworders=>{
+        res.status(200).json(neworders);
+
+    }).catch(err =>{
+        res.status(400).json(err);
+    })
+    
 }
 export async function update(req, res) {
-    const Order = new Order(req.body);
-    Order.photo = `/img/${req.file.filename}`;
+    const orders = new Order(req.body);
+    orders.photo = `/img/${req.file.filename}`;
 
-    const newOrder = await Order.updateOne(
-        { _id: Order._id },
-        Order
+    const newOrder = await orders.updateOne(
+        { _id: orders._id },
+        orders
     );
 
     if (newOrder == null) {
@@ -39,9 +44,9 @@ export async function update(req, res) {
 }
 export async function search(req, res) {
     const { name } = req.body;
-    const Order = await Order.find().or([{ name }]);
-    if (Order) {
-        res.json(Order);
+    const orders = await Order.find().or([{ name }]);
+    if (orders) {
+        res.json(orders);
     } else {
         res.json({ Messager: "erroooor" });
     }

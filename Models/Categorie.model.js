@@ -1,9 +1,10 @@
 import { Schema, model } from 'mongoose';
-var Brandmodel = Schema({
+var Categoriemodel = Schema({
    
     name: String,
-    Brand_logo: String,
-  
+    description: String,
+    photo: String,
+    products:[String]
    
 }, { timestamps: true });
 

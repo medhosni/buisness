@@ -6,7 +6,8 @@ import { connect } from "mongoose";
 
 import usersRouter from "./Routes/user.route.js";
 import brandRouter from "./Routes/Brand.routs.js"
-
+import productsRouter from "./Routes/Products.route.js"
+import ordersRouter from "./Routes/Order.routs.js"
 
 
 
@@ -33,7 +34,8 @@ connect(mongoDB)
 
 app.use("/users", usersRouter)
 app.use("/brand", brandRouter)
-
+app.use("/product", productsRouter)
+app.use("/orders", ordersRouter)
 app.listen(PORT, function () {
     console.log(`Server running on port ${PORT}`);
 })

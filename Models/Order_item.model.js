@@ -11,5 +11,5 @@ var OrderItemModel = Schema({
     
 }, { timestamps: true });
 
-const OrederItem = model('OrderItem', OrderItemModel);
-export default { OrederItem };
+
+export default model('OrderItem', OrderItemModel);

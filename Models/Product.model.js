@@ -16,5 +16,5 @@ var Productmodel = Schema({
     prix_groupage :Number
 }, { timestamps: true });
 
-const Product = model('Product', Productmodel);
-export default { Product };
+
+export default model('Product', Productmodel);
