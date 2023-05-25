@@ -8,7 +8,8 @@ import usersRouter from "./Routes/user.route.js";
 import brandRouter from "./Routes/Brand.routs.js"
 import productsRouter from "./Routes/Products.route.js"
 import ordersRouter from "./Routes/Order.routs.js"
-
+import ordersItemsRouter from "./Routes/OrderItem.routs.js"
+import categorieRouter from "./Routes/Categorie.routs.js"
 
 
 const app = express();
@@ -36,6 +37,8 @@ app.use("/users", usersRouter)
 app.use("/brand", brandRouter)
 app.use("/product", productsRouter)
 app.use("/orders", ordersRouter)
+app.use("/ordersitem", ordersItemsRouter)
+app.use("/categorie", categorieRouter)
 app.listen(PORT, function () {
     console.log(`Server running on port ${PORT}`);
 })

@@ -19,11 +19,15 @@ export async function create(req, res) {
     }
 }
 export async function getProducts(req, res) {
-    Product.find({}).then(products => {
-        res.status(200).json(products)
-    }).catch(err => {
-        res.status(400).json({message :err})
-    })
+    const products =await Product.
+    find({})
+    .populate('oreder brand categorie order_item').
+    exec();
+if (products!= null){
+    res.status(200).json(products);
+}else{
+    res.status(400).json({message :"errr"});
+}
 }
 export async function update(req, res) {
     const product = new Product(req.body);
@@ -42,6 +46,16 @@ if (photo==null)
     } else {
         console.log(newProduct);
         res.status(200).json(newProduct);
+    }
+}
+export async function getbybrand(req, res) {
+    const { brand } = req.body;
+    const product = await Product.find().or([{ brand }]);
+    if (product.length>0) {
+       
+        res.json(product);
+    } else {
+        res.json({ Messager: "no product found" });
     }
 }
 export async function search(req, res) {

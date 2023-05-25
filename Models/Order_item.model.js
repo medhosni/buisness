@@ -5,11 +5,13 @@ var OrderItemModel = Schema({
     prix: Number,
     quantite: Number,
     order_item_photo: String,
-    order: String,
-    product: Number,
+  
+    product: [{ type: Schema.Types.ObjectId, ref:'Product' }],
     totale_order_items: Number,
     
-}, { timestamps: true });
+},
+
+{ timestamps: true });
 
 
 export default model('OrderItem', OrderItemModel);

@@ -8,4 +8,4 @@ var Brandmodel = Schema({
 }, { timestamps: true });
 
 
-export default model('Brandct', Brandmodel);
+export default model('Brand', Brandmodel);

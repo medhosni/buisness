@@ -2,8 +2,8 @@ import { Schema, model } from 'mongoose';
 var OrderModel = Schema({
    
     name: String,
-    order_item: String,
-    user: String,
+    order_item: [{ type: Schema.Types.ObjectId, ref:'OrderItem' }],
+    user: [{ type: Schema.Types.ObjectId, ref:'User' }],
     totale_paid: String,
     unite: String,
     confirm: Boolean,

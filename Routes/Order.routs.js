@@ -1,7 +1,7 @@
 import express from "express";
 import {
   create,
-  getOrders,search,update
+  getOrders,search,update,getbyuser
 } from "../Controllers/Order.controller.js";
 import multer from "../Middleware/multer.js";
 const router = express.Router();
@@ -11,6 +11,8 @@ const router = express.Router();
 router.route("/")
     .get(getOrders)
     .post(multer("image"),create);
+    router.route("/user")
+    .post(getbyuser)
 router.route("/searche")
     .post(search);
 router.route("/update")

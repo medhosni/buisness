@@ -1,6 +1,7 @@
 import  Order  from "../Models/Orders.model.js";
 import {} from 'dotenv/config'
-
+import  User  from "../Models/user.model.js";
+import  OrderItem  from "../Models/Order_item.model.js";
 
 
 export async function create(req, res) {
@@ -18,12 +19,19 @@ export async function create(req, res) {
     }
 }
 export async function getOrders(req, res) {
-    Order.find({}).then(neworders=>{
-        res.status(200).json(neworders);
 
-    }).catch(err =>{
-        res.status(400).json(err);
-    })
+
+    const order =await Order.
+    find({})
+    .populate('order_item user').
+    exec();
+if (order!= null){
+    res.status(200).json(order);
+}else{
+    res.status(400).json({message :"errr"});
+}
+
+   
     
 }
 export async function update(req, res) {
@@ -40,6 +48,15 @@ export async function update(req, res) {
     } else {
         console.log(newOrder);
         res.status(200).json(newOrder);
+    }
+}
+export async function getbyuser(req, res) {
+    const { user } = req.body;
+    const orders = await Order.find().or([{ user }]);
+    if (orders) {
+        res.json(orders);
+    } else {
+        res.json({ Messager: "erroooor" });
     }
 }
 export async function search(req, res) {

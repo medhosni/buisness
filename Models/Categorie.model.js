@@ -4,9 +4,9 @@ var Categoriemodel = Schema({
     name: String,
     description: String,
     photo: String,
-    products:[String]
+    products:[[{ type: Schema.Types.ObjectId, ref:'Product' }]]
    
 }, { timestamps: true });
 
 
-export default model('Brandct', Brandmodel);
+export default model('Categorie', Categoriemodel);

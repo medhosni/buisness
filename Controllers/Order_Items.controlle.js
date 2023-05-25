@@ -1,4 +1,4 @@
-import  OrderItem  from "../Models/OrderItem.model";
+import  OrderItem  from "../Models/Order_item.model.js";
 import {} from 'dotenv/config'
 
 
@@ -18,8 +18,15 @@ export async function create(req, res) {
     }
 }
 export async function getOrderItems(req, res) {
-    const orderItems = await OrderItem.find();
-    res.status(200).json(orderItems);
+    const orderItem =await OrderItem.
+    find({})
+    .populate('product').
+    exec();
+if (orderItem!= null){
+    res.status(200).json(orderItem);
+}else{
+    res.status(400).json({message :"errr"});
+}
 }
 export async function update(req, res) {
     const orderItems = new OrderItem(req.body);
@@ -35,6 +42,15 @@ export async function update(req, res) {
     } else {
         console.log(newOrderItem);
         res.status(200).json(newOrderItem);
+    }
+}
+export async function getbyproduct(req, res) {
+    const { product } = req.body;
+    const orderItems = await OrderItem.find().or([{ product }]);
+    if (orderItems) {
+        res.status(200).json(orderItems);
+    } else {
+        res.status(400).json({ Messager: "erroooor" });
     }
 }
 export async function search(req, res) {
