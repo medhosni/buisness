@@ -6,8 +6,8 @@ var UserModel = Schema({
     photo: String,
     oreder: String,
     adresse: String,
-    phone: String,
-    code :Number
+    phone: Number,
+    code :{ type: Number, default: "0000" }
 }, { timestamps: true });
 
 

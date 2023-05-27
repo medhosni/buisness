@@ -11,8 +11,9 @@ const router = express.Router();
 router.route("/")
     .get(getProducts)
     .post(multer("image"),create);
-    router.route("/searche")
-    .post(getProducts)
+    router.route("/bybrand")
+    .post(getbybrand)
+    
 router.route("/searche")
     .post(search);
 router.route("/update")

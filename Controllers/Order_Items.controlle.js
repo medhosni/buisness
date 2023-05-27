@@ -8,7 +8,7 @@ export async function create(req, res) {
     console.log({ ...req.body });
 
     orderItems.photo = `/img/${req.file.filename}`;
-
+    orderItems.totale_order_items=orderItems.prix*orderItems.quantite
     await orderItems.save();
 
     if (orderItems)

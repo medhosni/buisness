@@ -1,0 +1,885 @@
+{
+	"info": {
+		"_postman_id": "691ca888-681b-4765-bb04-dcc7e2fb1d79",
+		"name": "BOBO",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "7927008",
+		"_collection_link": "https://grey-desert-447109.postman.co/workspace/My-Workspace~8c0c00e9-bf9c-4d6a-841e-2468460cbf58/collection/7927008-691ca888-681b-4765-bb04-dcc7e2fb1d79?action=share&creator=7927008&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/Mohamed/Pictures/Screenshots/Capture d’écran (2).png"
+								},
+								{
+									"key": "mail",
+									"value": "mohamed.hosni@esprit.tn",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456798",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "mohamed hosni",
+									"type": "text"
+								},
+								{
+									"key": "adresse ",
+									"value": "ariana",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "12345678",
+									"type": "text"
+								}
+							]
+						},
+						"url": "127.0.0.1:3000/users"
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/Mohamed/Pictures/Screenshots/Capture d’écran (32).png"
+								},
+								{
+									"key": "mail",
+									"value": "mohamed.hosni.isi@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "87654321",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "mohamed hosni",
+									"type": "text"
+								},
+								{
+									"key": "adresse ",
+									"value": "ariana",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "12345678",
+									"type": "text"
+								},
+								{
+									"key": "_id",
+									"value": "646fc0723edab6e02cd0e3e2",
+									"type": "text"
+								}
+							]
+						},
+						"url": "127.0.0.1:3000/users"
+					},
+					"response": []
+				},
+				{
+					"name": "getall users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "127.0.0.1:3000/users"
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mail\":\"mohamed.hosni.isi@gmail.com\",\r\n    \"password\":\"123321123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "127.0.0.1:3000/users/login"
+					},
+					"response": []
+				},
+				{
+					"name": "getbyid",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"_id\": \"646fc0723edab6e02cd0e3e2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "127.0.0.1:3000/users/show"
+					},
+					"response": []
+				},
+				{
+					"name": "forgetpwd",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mail\": \"mohamed.hosni@esprit.tn\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "127.0.0.1:3000/users/forgetpwd"
+					},
+					"response": []
+				},
+				{
+					"name": "change code",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"_id\": \"646fc4f264556c834413b0d8\",\r\n    \"password\":\"123321123\",\r\n    \"code\": 5344\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "127.0.0.1:3000/users/changePwd"
+					},
+					"response": []
+				},
+				{
+					"name": "127.0.0.1:3000/users",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": "127.0.0.1:3000/users"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "getall",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "127.0.0.1:3000/product"
+					},
+					"response": []
+				},
+				{
+					"name": "add one",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "randa",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "description",
+									"value": "ma9rouna ",
+									"type": "text"
+								},
+								{
+									"key": "unite",
+									"value": "20",
+									"type": "text"
+								},
+								{
+									"key": "prix_unitaire",
+									"value": "100",
+									"type": "text"
+								},
+								{
+									"key": "colisage",
+									"value": "colisage",
+									"type": "text"
+								},
+								{
+									"key": "description_seo",
+									"value": "des",
+									"type": "text"
+								},
+								{
+									"key": "groupage",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "brand",
+									"value": "6470917be414a949d2c24c7b",
+									"type": "text"
+								}
+							]
+						},
+						"url": "127.0.0.1:3000/product"
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "randa",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/Mohamed/Pictures/Screenshots/Capture d’écran (2).png"
+								},
+								{
+									"key": "description",
+									"value": "ma9rouna ",
+									"type": "text"
+								},
+								{
+									"key": "unite",
+									"value": "20",
+									"type": "text"
+								},
+								{
+									"key": "prix_unitaire",
+									"value": "100",
+									"type": "text"
+								},
+								{
+									"key": "colisage",
+									"value": "colisage",
+									"type": "text"
+								},
+								{
+									"key": "description_seo",
+									"value": "des",
+									"type": "text"
+								},
+								{
+									"key": "groupage",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "prix_groupage",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": "127.0.0.1:3000/product/update"
+					},
+					"response": []
+				},
+				{
+					"name": "getbyname",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"randa\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "127.0.0.1:3000/product/searche"
+					},
+					"response": []
+				},
+				{
+					"name": "getbybrand",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"brand\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "127.0.0.1:3000/product/bybrand"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "categorie",
+			"item": [
+				{
+					"name": "getall",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "127.0.0.1:3000/categorie"
+					},
+					"response": []
+				},
+				{
+					"name": "add one",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "randa",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/Mohamed/Pictures/Screenshots/Capture d’écran (2).png"
+								},
+								{
+									"key": "description",
+									"value": "ma9rouna ",
+									"type": "text"
+								},
+								{
+									"key": "products",
+									"value": "64708c75b582e9c6810c316b",
+									"type": "text"
+								}
+							]
+						},
+						"url": "127.0.0.1:3000/categorie"
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "randa",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/Mohamed/Pictures/Screenshots/Capture d’écran (2).png"
+								},
+								{
+									"key": "description",
+									"value": "ma9rouna ",
+									"type": "text"
+								},
+								{
+									"key": "unite",
+									"value": "20",
+									"type": "text"
+								},
+								{
+									"key": "prix_unitaire",
+									"value": "100",
+									"type": "text"
+								},
+								{
+									"key": "colisage",
+									"value": "colisage",
+									"type": "text"
+								},
+								{
+									"key": "description_seo",
+									"value": "des",
+									"type": "text"
+								},
+								{
+									"key": "groupage",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "prix_groupage",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": "127.0.0.1:3000/product/update"
+					},
+					"response": []
+				},
+				{
+					"name": "getbyname",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"randa\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "127.0.0.1:3000/product/searche"
+					},
+					"response": []
+				},
+				{
+					"name": "getbybrand",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"brand\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "127.0.0.1:3000/product/bybrand"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ordersitem",
+			"item": [
+				{
+					"name": "getall",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "127.0.0.1:3000/ordersitem"
+					},
+					"response": []
+				},
+				{
+					"name": "add one",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "XXX",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/Mohamed/Pictures/Screenshots/Capture d’écran (2).png"
+								},
+								{
+									"key": "prix",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "quantite",
+									"value": "100",
+									"type": "text"
+								},
+								{
+									"key": "product",
+									"value": "64708c75b582e9c6810c316b",
+									"type": "text"
+								}
+							]
+						},
+						"url": "127.0.0.1:3000/ordersitem"
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "XXX",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/Mohamed/Pictures/Screenshots/Capture d’écran (2).png"
+								},
+								{
+									"key": "prix",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "quantite",
+									"value": "100",
+									"type": "text"
+								},
+								{
+									"key": "product",
+									"value": "64708c75b582e9c6810c316b",
+									"type": "text"
+								}
+							]
+						},
+						"url": "127.0.0.1:3000/ordersitem/update"
+					},
+					"response": []
+				},
+				{
+					"name": "getbyname",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"XXX\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "127.0.0.1:3000/ordersitem/searche"
+					},
+					"response": []
+				},
+				{
+					"name": "getbybrand",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"product\": \"64708c75b582e9c6810c316b\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "127.0.0.1:3000/ordersitem/product"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "orders",
+			"item": [
+				{
+					"name": "getall",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "127.0.0.1:3000/orders"
+					},
+					"response": []
+				},
+				{
+					"name": "add one",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "orde de xj",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/Mohamed/Pictures/Screenshots/Capture d’écran (2).png"
+								},
+								{
+									"key": "totale_paid",
+									"value": "200000",
+									"type": "text"
+								},
+								{
+									"key": "unite",
+									"value": "20",
+									"type": "text"
+								},
+								{
+									"key": "confirm",
+									"value": "false",
+									"type": "text"
+								},
+								{
+									"key": "isverified",
+									"value": "false",
+									"type": "text"
+								},
+								{
+									"key": "busket",
+									"value": "false",
+									"type": "text"
+								},
+								{
+									"key": "user",
+									"value": "646fc4f264556c834413b0d8",
+									"type": "text"
+								}
+							]
+						},
+						"url": "127.0.0.1:3000/orders"
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "orde de xj",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/Mohamed/Pictures/Screenshots/Capture d’écran (2).png"
+								},
+								{
+									"key": "totale_paid",
+									"value": "200000",
+									"type": "text"
+								},
+								{
+									"key": "unite",
+									"value": "200",
+									"type": "text"
+								},
+								{
+									"key": "confirm",
+									"value": "false",
+									"type": "text"
+								},
+								{
+									"key": "isverified",
+									"value": "false",
+									"type": "text"
+								},
+								{
+									"key": "busket",
+									"value": "false",
+									"type": "text"
+								},
+								{
+									"key": "user",
+									"value": "646fc4f264556c834413b0d8",
+									"type": "text"
+								}
+							]
+						},
+						"url": "127.0.0.1:3000/orders/update"
+					},
+					"response": []
+				},
+				{
+					"name": "getbyname",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"randa\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "127.0.0.1:3000/orders/searche"
+					},
+					"response": []
+				},
+				{
+					"name": "getbybrand",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user\": \"646fc4f264556c834413b0d8\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "127.0.0.1:3000/orders/byuser"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "brand",
+			"item": [
+				{
+					"name": "getall",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "127.0.0.1:3000/brand"
+					},
+					"response": []
+				},
+				{
+					"name": "add one",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "randa",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/Mohamed/Pictures/Screenshots/Capture d’écran (2).png"
+								}
+							]
+						},
+						"url": "127.0.0.1:3000/brand"
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "randa",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/Mohamed/Pictures/Screenshots/Capture d’écran (32).png"
+								}
+							]
+						},
+						"url": "127.0.0.1:3000/brand"
+					},
+					"response": []
+				},
+				{
+					"name": "getbyname",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"randa\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "127.0.0.1:3000/brand/searche"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

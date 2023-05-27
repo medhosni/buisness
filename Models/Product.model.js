@@ -16,5 +16,15 @@ var Productmodel = Schema({
     prix_groupage :Number
 }, { timestamps: true });
 
-
+/**
+ *  "prix_unitaire" :{
+              "type": "array",
+              "items": {
+              "type": "string"
+              }} "prix_unitaire" :{
+              "type": "array",
+              "items": {
+              "type": "string"
+              }}
+ */
 export default model('Product', Productmodel);

@@ -8,6 +8,7 @@ export async function create(req, res) {
     console.log({ ...req.body });
 
     products.photo = `/img/${req.file.filename}`;
+    products.prix_groupage=products.prix_unitaire*products.unite
 
     await products.save();
 

@@ -4,6 +4,7 @@ import multer from "../Middleware/multer.js";
 const router = express.Router();
 /**
  * @Path /users
+
  */
 router.get("/", getUsers);
 router.post("/",multer("image"), createUser);

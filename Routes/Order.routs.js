@@ -15,6 +15,8 @@ router.route("/")
     .post(getbyuser)
 router.route("/searche")
     .post(search);
+    router.route("/byuser")
+    .post(getbyuser);
 router.route("/update")
     .patch(multer("image"),update);
 

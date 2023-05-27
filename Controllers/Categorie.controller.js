@@ -18,7 +18,7 @@ export async function create(req, res) {
     }
 }
 export async function getCategories(req, res) {
-    const categorie =await Categorie.
+    const categorie = await Categorie.
     find({})
     .populate('products').
     exec();
