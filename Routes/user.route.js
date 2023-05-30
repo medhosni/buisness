@@ -7,10 +7,10 @@ const router = express.Router();
 
  */
 router.get("/", getUsers);
-router.post("/",multer("image"), createUser);
+router.post("/", createUser);
 router.post("/login", login);
 router.get("/show", showprofile);
-router.patch("/",multer("image"),update)
+router.patch("/",update)
 router.patch("/changePwd",updatePwd)
 router.post("/search",search);
 router.post("/forgetpwd",fogetpwd)

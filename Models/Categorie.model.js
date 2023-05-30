@@ -3,7 +3,7 @@ var Categoriemodel = Schema({
    
     name: String,
     description: String,
-    photo: String,
+    image: String,
     products:[[{ type: Schema.Types.ObjectId, ref:'Product' }]]
    
 }, { timestamps: true });

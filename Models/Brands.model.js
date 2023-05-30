@@ -2,7 +2,7 @@ import { Schema, model } from 'mongoose';
 var Brandmodel = Schema({
    
     name: String,
-    Brand_logo: String,
+    logo: String,
   
    
 }, { timestamps: true });

@@ -24,8 +24,22 @@ export async function createUser(req, res) {
   console.log({ ...req.body });
   var hash = hashSync(users.password, 10);
   users.password = hash;
+  
+  await users.save();
+
+  if (users)
+    res.status(200).json(users);
+  else {
+    res.status(400).json({ Message: "Can't create this user " });
+  }
+}
+export async function createUserPhoto(req, res) {
+  const users = new User({ ...req.body });
+  console.log({ ...req.body });
+  var hash = hashSync(users.password, 10);
+  users.password = hash;
   users.photo = `/img/${req.file.filename}`;
-  //photos.forEach((e) => users.photos.push(e.path.replace("public", "")));
+  
   await users.save();
 
   if (users)
@@ -39,9 +53,9 @@ export async function getUsers(req, res) {
   res.json(users);
 }
 export async function login(req, res) {
-  var { mail, password } = req.body;
+  var { email, password } = req.body;
 
-  const users = await User.findOne({ mail: mail });
+  const users = await User.findOne({ email: email });
   if (users == null) {
     return res
       .status(404)
@@ -62,7 +76,7 @@ export async function update(req, res) {
   var hash = hashSync(req.body.password, 10);
 
   user.password = hash;
-  user.photo = `/img/${req.file.filename}`;
+
 
   const newuser = await User.updateOne(
     { _id: user._id },
@@ -89,11 +103,11 @@ export async function showprofile(req, res) {
 export async function fogetpwd(req, res) {
   const code = Math.floor(Math.random() * 9999);
  
-  User.findOneAndUpdate({ "mail": req.body.mail }, { "code": code })
+  User.findOneAndUpdate({ "mail": req.body.email }, { "code": code })
             .then(doc => {
               var mailOptions = {
                 to: doc.mail,
-                subject: "Mot de passe oublier " + doc.name,
+                subject: "Mot de passe oublier " + doc.fullname,
                 html: `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
                 <html data-editor-version="2" class="sg-campaigns" xmlns="http://www.w3.org/1999/xhtml">
                   <head>
@@ -384,10 +398,10 @@ user.password = hash
 
   ).catch(err => res.status(500).json({message :err}))
 }
-
+//**SEARCH BY NAME AND EMAIL */
 export async function search(req, res) {
-  const { name, mail } = req.body;
-  const user = await User.find().or([{ name }, { mail }]);
+  const { username, email } = req.body;
+  const user = await User.find().or([{ username }, { email }]);
   if (user) {
     res.status(200).json(user);
   } else {

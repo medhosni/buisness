@@ -21,10 +21,11 @@
     "nodemailer": "^6.8.0",
     "nodemailer-smtp-transport": "^2.7.4",
     "swagger-jsdoc": "^6.2.8",
-    "swagger-ui-express": "^4.6.3"
+    "swagger-ui-express": "^4.6.3",
+    "morgan": "^1.10.0"
   },
   "devDependencies": {
-    "morgan": "^1.10.0",
+
     "nodemon": "^2.0.20"
   }
 }
