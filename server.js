@@ -13,7 +13,7 @@ import categorieRouter from "./Routes/Categorie.routs.js"
 
 
 const app = express();
-const PORT = process.env.portServer || 3000;
+const PORT = process.env.PORT || 3000;
 
 var mongoDB = process.env.dburl;
 
