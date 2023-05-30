@@ -3,7 +3,6 @@ import express, { json, urlencoded } from "express";
 import morgan from "morgan";
 import cors from 'cors';
 import { connect } from "mongoose";
-
 import usersRouter from "./Routes/user.route.js";
 import brandRouter from "./Routes/Brand.routs.js"
 import productsRouter from "./Routes/Products.route.js"
@@ -22,6 +21,7 @@ app.use(cors())
 app.use(json())
 app.use(urlencoded({extended : true}))
 
+  
 
 app.use('/img', express.static('public/images'));
 
