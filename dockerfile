@@ -1,20 +1,14 @@
 FROM node:16
 
- 
-RUN mkdir -p /home/node/app && chown -R node:node /home/node/app
 
-WORKDIR /home/node/app
+WORKDIR /usr/src/app
+
 
 COPY package*.json ./
 
-RUN npm install --production
+RUN npm install
 
 COPY . .
 
-RUN chown -R node:node /home/node/app
-
-USER node
-
-EXPOSE 3000
-
-CMD ["node", "server.js"]
+EXPOSE 3010
+CMD [ "node", "server.js" ]
