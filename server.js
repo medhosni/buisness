@@ -9,7 +9,7 @@ import productsRouter from "./Routes/Products.route.js"
 import ordersRouter from "./Routes/Order.routs.js"
 import ordersItemsRouter from "./Routes/OrderItem.routs.js"
 import categorieRouter from "./Routes/Categorie.routs.js"
-import {adminBro,router} from "./Routes/admin.routs.js"
+//import {adminBro,router} from "./Routes/admin.routs.js"
 
 
 const app = express();

@@ -54,8 +54,29 @@ export async function getUsers(req, res) {
 }
 export async function login(req, res) {
   var { email, password } = req.body;
+  console.log(req.body)
+User.findOne({email:email}).then(async user=>{
+  console.log(user)
+  if (user == null) {
+ res
+      .status(501)
+      .json({ message: "Your email address don't exist." });
+  }else{const match = await compare(password, user.password) ;
+    console.log(match );
+    if ( !match) {
+       res
+        .status(500)
+        .json({ message: "Your password is incorrect." });
+    } else {
+      res.status(200).json( user );
+    }}
+  
+  
+})
 
-  const users = await User.findOne({ email: email });
+
+  /*const users = await User.findOne({ email: email });
+  console.log(users)
   if (users == null) {
     return res
       .status(404)
@@ -69,7 +90,7 @@ export async function login(req, res) {
       .json({ message: "Your password is incorrect." });
   } else {
     res.status(200).json({ result: users });
-  }
+  }*/
 }
 export async function update(req, res) {
   const user = new User(req.body);
