@@ -408,3 +408,16 @@ export async function search(req, res) {
     res.status(400).json({ Messager: "erroooor" });
   }
 }
+export async function deleteUser(req, res) {
+  console.log("****************************")
+  
+  const { email } = req.params;
+  console.log(email)
+  const user =User.findOne({ email:email })
+  user.deleteOne().then(user =>{
+    res.status(203).json({message :"user deleted "})
+  }).catch(err =>{
+res.status(400).json({err :err})
+  })
+  
+}

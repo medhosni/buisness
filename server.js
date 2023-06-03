@@ -39,7 +39,7 @@ app.use("/product", productsRouter)
 app.use("/orders", ordersRouter)
 app.use("/ordersitem", ordersItemsRouter)
 app.use("/categorie", categorieRouter)
-app.use(adminBro.options.rootPath,router)
+//app.use(adminBro.options.rootPath,router)
 //************************************************************************ */
 
 
