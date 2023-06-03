@@ -3,7 +3,7 @@ import AdminBroMongoose from '@admin-bro/mongoose'
 
 import AdminBro from 'admin-bro'
 import pkg from 'admin-bro-expressjs';
-const {buildAuthenticatedRouter,buildRouter} = pkg;
+const {buildRouter} = pkg;
 import mongoose  from 'mongoose';
 
 
