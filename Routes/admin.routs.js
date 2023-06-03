@@ -1,4 +1,4 @@
-import AdminBroMongoose from '@admin-bro/mongoose'
+/*import AdminBroMongoose from '@admin-bro/mongoose'
 
 
 import AdminBro from 'admin-bro'
@@ -28,6 +28,7 @@ const router = buildRouter(adminBro)/*,{
   
   }
 })
-*/
+
 
 export {adminBro,router}
+*/

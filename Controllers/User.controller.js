@@ -10,7 +10,7 @@ var transporter = createTransport(
   smtpTransport({
     service: process.env.service,
     host: process.env.host,
-    port: process.env.portMail,
+    port: process.env.portMAil||587,
     secure: process.env.secure,
     auth: {
       user: process.env.user,
