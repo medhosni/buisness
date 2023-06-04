@@ -27,17 +27,7 @@ export async function getProduct(req, res) {
        res.status(403).json({err:err})
     })
    }
-export async function getProducts(req, res) {
-    const products =await Product.
-    find({})
-    .populate('brand categorie').
-    exec();
-if (products!= null){
-    res.status(200).json(products);
-}else{
-    res.status(400).json({message :"errr"});
-}
-}
+
 export async function getProducts(req, res) {
     const products =await Product.
     find({})
