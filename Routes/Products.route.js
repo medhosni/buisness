@@ -19,6 +19,7 @@ router.route("/")
 router.route("/searche")
     .post(search);
 router.route("/update")
+
     .patch(update);
 
 export default router;
