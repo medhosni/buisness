@@ -6,11 +6,10 @@ import  OrderItem  from "../Models/Order_item.model.js";
 
 export async function create(req, res) {
     const orders = new Order({ ...req.body });
-    console.log( req.body.user );
-
+   
     
     const orders4 = await Order.findOne( {user:req.body.user});
-    console.log(orders4)
+
     if (orders4== null){
         await orders.save();
 
@@ -21,6 +20,8 @@ export async function create(req, res) {
         }
     }else if (orders4.busket==true ){
         res.status(403).json({ Message: "Order already exist" });
+    }else{
+        res.status(405).json({ Message: "Order already exist" });
     }
     
 }
