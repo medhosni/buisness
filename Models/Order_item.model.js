@@ -5,7 +5,6 @@ var OrderItemModel = Schema({
     prix: Number,
     quantity: Number,
     itemImage: String,
-  
     product: [{ type: Schema.Types.ObjectId, ref:'Product' }],
     totale_order_items: Number,
     
