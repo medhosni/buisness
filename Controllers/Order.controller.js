@@ -8,15 +8,20 @@ export async function create(req, res) {
     const orders = new Order({ ...req.body });
     console.log({ ...req.body });
 
-    
+    const user =orders.user ;
+    const orders4 = await Order.find().or([{ user}]);
+    if (orders4== null){
+        await orders.save();
 
-    await orders.save();
-
-    if (orders)
-        res.status(200).json(orders);
-    else {
-        res.status(400).json({ Message: "Can't create this Order " });
+        if (orders)
+            res.status(200).json(orders);
+        else {
+            res.status(400).json({ Message: "Can't create this Order " });
+        }
+    }else if (orders4.busket==true ){
+        res.status(403).json({ Message: "Order already exist" });
     }
+    
 }
 export async function getOrders(req, res) {
 

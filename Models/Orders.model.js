@@ -6,9 +6,9 @@ var OrderModel = Schema({
     user: [{ type: Schema.Types.ObjectId, ref:'User' }],
     totalePaid: Number,
     unite: Number,
-    confirmed: Boolean,
-    isverified: Boolean,
-    busket: Boolean,
+    confirmed: {type:Boolean, default: false},
+    isverified: {type:Boolean, default: false},
+    busket: {type:Boolean, default: false},
 }, { timestamps: true });
 
 
