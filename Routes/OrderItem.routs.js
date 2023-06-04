@@ -10,12 +10,12 @@ const router = express.Router();
  */
 router.route("/")
     .get(getOrderItems)
-    .post(multer("image"),create);
+    .post(create);
     router.route("/product").
     post(getbyproduct)
 router.route("/searche")
     .post(search);
 router.route("/update")
-    .patch(multer("image"),update);
+    .patch(update);
 
 export default router;

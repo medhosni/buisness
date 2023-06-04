@@ -7,7 +7,7 @@ export async function create(req, res) {
     const orderItems = new OrderItem({ ...req.body });
     console.log({ ...req.body });
 
-    orderItems.photo = `/img/${req.file.filename}`;
+   // orderItems.photo = `/img/${req.file.filename}`;
     orderItems.totale_order_items=orderItems.prix*orderItems.quantite
     await orderItems.save();
 
@@ -30,7 +30,7 @@ if (orderItem!= null){
 }
 export async function update(req, res) {
     const orderItems = new OrderItem(req.body);
-    orderItems.photo = `/img/${req.file.filename}`;
+    //orderItems.photo = `/img/${req.file.filename}`;
 
     const newOrderItem = await orderItems.updateOne(
         { _id: orderItems._id },
