@@ -28,6 +28,14 @@ if (categorie!= null){
     res.status(400).json({message :"errr"});
 }
 }
+
+export async function getCategorie(req, res) {
+    Categorie.findById({_id: req.body.id }).then(categorie => {
+        res.status(200).json(categorie)
+     }).catch(err =>{
+        res.status(403).json({err:err})
+     })
+}
 export async function update(req, res) {
     
     Categorie.findByIdAndUpdate(req.body._id, req.body)

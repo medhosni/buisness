@@ -6,10 +6,11 @@ import  OrderItem  from "../Models/Order_item.model.js";
 
 export async function create(req, res) {
     const orders = new Order({ ...req.body });
-    console.log({ ...req.body });
+    console.log( req.body.user );
 
-    const user =orders.user ;
-    const orders4 = await Order.find().or([{ user}]);
+    
+    const orders4 = await Order.findOne( {user:req.body.user});
+    console.log(orders4)
     if (orders4== null){
         await orders.save();
 

@@ -4,6 +4,7 @@ import {
   getBrands,
   search,
   update,
+  getBrand
 } from "../Controllers/Brand.controller.js";
 import multer from "../Middleware/multer.js";
 const router = express.Router();
@@ -15,6 +16,8 @@ router.route("/")
     .post(multer("image"),create);
 router.route("/searche")
     .post(search);
+    router.route("/getone")
+    .post(getBrand);
 router.route("/update")
     .patch(multer("image"),update);
 export default router;

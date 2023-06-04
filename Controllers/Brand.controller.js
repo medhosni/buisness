@@ -22,6 +22,14 @@ export async function getBrands(req, res) {
     res.status(200).json(brands)
    }).catch(err => res.status(400).json({message :err}))
 }
+
+export async function getBrand(req, res) {
+    Brand.findById({_id: req.body.id }).then(Brand => {
+        res.status(200).json(Brand)
+     }).catch(err =>{
+        res.status(403).json({err:err})
+     })
+}
 export async function update(req, res) {
     
     Brand.findByIdAndUpdate(req.body._id, req.body)

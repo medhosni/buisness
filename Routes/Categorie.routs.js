@@ -4,7 +4,8 @@ import {
   getCategories,
   search,
   update,
-  getbyproduct
+  getbyproduct,
+  getCategorie
 } from "../Controllers/Categorie.controller.js";
 import multer from "../Middleware/multer.js";
 const router = express.Router();
@@ -16,6 +17,8 @@ router.route("/")
     .post(multer("image"),create);
     router.route("/product")
     .post(getbyproduct)
+    router.route("/getone")
+    .post(getCategorie);
 router.route("/searche")
     .post(search);
 router.route("/update")
