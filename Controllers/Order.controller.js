@@ -19,9 +19,9 @@ export async function create(req, res) {
             res.status(400).json({ Message: "Can't create this Order " });
         }
     }else if (orders4.busket==true ){
-        res.status(403).json({ Message: "Order already exist" });
+        res.status(403).json({ Message: "Order exist" });
     }else{
-        res.status(405).json({ Message: "Order already exist" });
+        res.status(200).json(orders);
     }
     
 }
