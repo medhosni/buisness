@@ -48,18 +48,23 @@ export async function addproduct(req, res) {
     
 
 
-    OrderItem.findByIdAndUpdate({_id : req.body.id},{product:req.body.product}).then(newproduct => {
+    /*OrderItem.findByIdAndUpdate({_id : req.body.id},{product:product.push(req.body.product)}).then(newproduct => {
         res.status(200).json(newproduct);
     }).catch(err =>{
-        return res.status(400).json({ message: "not updated " });
-    })
+        return res.status(400).json({ err: err });
+    })*/
     //orderItems.photo = `/img/${req.file.filename}`;
+const orderItem = await OrderItem.findById({_id:req.body.id})
+orderItem.product.push(req.body.product)
 
-  /*  const newOrderItem = await rderItems.updateOne(
-        { _id: req.body.id },
-        {product :req.body.product}
-    );
 
+    OrderItem.findByIdAndUpdate({_id : req.body.id},orderItem).then(async newproduct => {
+     
+        res.status(200).json(newproduct);
+    }).catch(err =>{
+        return res.status(400).json({ err: err });
+    })
+    /*console.log(newOrderItem)
     if (newOrderItem == null) {
         return res.status(400).json({ message: "not updated " });
     } else {
