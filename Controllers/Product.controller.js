@@ -19,6 +19,14 @@ export async function create(req, res) {
         res.status(400).json({ Message: "Can't create this Product " });
     }
 }
+
+export async function getProduct(req, res) {
+    Product.findById({_id: req.body.id }).then(product => {
+       res.status(200).json(product)
+    }).catch(err =>{
+       res.status(403).json({err:err})
+    })
+   }
 export async function getProducts(req, res) {
     const products =await Product.
     find({})
