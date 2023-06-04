@@ -44,6 +44,34 @@ export async function update(req, res) {
         res.status(200).json(newOrderItem);
     }
 }
+export async function addproduct(req, res) {
+    
+
+
+    OrderItem.findByIdAndUpdate({_id : req.body.id},{product:req.body.product}).then(newproduct => {
+        res.status(200).json(newproduct);
+    }).catch(err =>{
+        return res.status(400).json({ message: "not updated " });
+    })
+    //orderItems.photo = `/img/${req.file.filename}`;
+
+  /*  const newOrderItem = await rderItems.updateOne(
+        { _id: req.body.id },
+        {product :req.body.product}
+    );
+
+    if (newOrderItem == null) {
+        return res.status(400).json({ message: "not updated " });
+    } else {
+        console.log(newOrderItem);
+        res.status(200).json(newOrderItem);
+    }*/
+}
+export async function getOrderItem(req, res) {
+    OrderItem.find({}).then(orderItem =>{
+     res.status(200).json(orderItem)
+    }).catch(err => res.status(400).json({message :err}))
+ }
 export async function getbyproduct(req, res) {
     const { product } = req.body;
     const orderItems = await OrderItem.find().or([{ product }]);

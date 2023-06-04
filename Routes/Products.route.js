@@ -12,7 +12,7 @@ router.route("/")
     .get(getProducts)
     .post(create);
     router.route("/getone")
-    .get(getProduct)
+    .post(getProduct)
     router.route("/bybrand")
     .post(getbybrand)
     router.route("/bycategorie")
