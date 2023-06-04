@@ -30,6 +30,17 @@ if (products!= null){
     res.status(400).json({message :"errr"});
 }
 }
+export async function getProducts(req, res) {
+    const products =await Product.
+    find({})
+    .populate('brand categorie').
+    exec();
+if (products!= null){
+    res.status(200).json(products);
+}else{
+    res.status(400).json({message :"errr"});
+}
+}
 export async function update(req, res) {
     const product = new Product(req.body);
   const photo= `/img/${req.file.filename}`;
