@@ -8,7 +8,7 @@ export async function create(req, res) {
     const orders = new Order({ ...req.body });
     console.log({ ...req.body });
 
-    orders.photo = `/img/${req.file.filename}`;
+    
 
     await orders.save();
 
@@ -36,7 +36,7 @@ if (order!= null){
 }
 export async function update(req, res) {
     const orders = new Order(req.body);
-    orders.photo = `/img/${req.file.filename}`;
+   
 
     const newOrder = await orders.updateOne(
         { _id: orders._id },
