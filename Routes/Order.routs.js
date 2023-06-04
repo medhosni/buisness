@@ -10,7 +10,7 @@ const router = express.Router();
  */
 router.route("/")
     .get(getOrders)
-    .post(multer("image"),create);
+    .post(create);
     router.route("/user")
     .post(getbyuser)
 router.route("/searche")
@@ -18,6 +18,6 @@ router.route("/searche")
     router.route("/byuser")
     .post(getbyuser);
 router.route("/update")
-    .patch(multer("image"),update);
+    .patch(update);
 
 export default router;
