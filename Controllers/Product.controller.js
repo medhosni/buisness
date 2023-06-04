@@ -68,6 +68,16 @@ export async function getbybrand(req, res) {
         res.json({ Messager: "no product found" });
     }
 }
+export async function getbycategorie(req, res) {
+    const { categorie } = req.body;
+    const product = await Product.find().or([{ categorie }]);
+    if (product.length>0) {
+       
+        res.json(product);
+    } else {
+        res.json({ Messager: "no product found" });
+    }
+}
 export async function search(req, res) {
     const { name } = req.body;
     const product = await Product.find().or([{ name }]);
