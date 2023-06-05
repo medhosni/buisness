@@ -29,7 +29,9 @@ if (orderItem!= null){
 }
 }
 export async function update(req, res) {
-OrderItem.findByIdAndUpdate({_id :req.body.id},{ ...req.body }).then(orderitem =>{
+   
+OrderItem.findByIdAndUpdate({_id :req.body.id},{...req.body,totale_order_items:req.body.prix*req.body.quantity}).then(orderitem =>{
+
     res.status(200).json(orderitem)
 }).catch(err => {
     res.status(500).json({err :err})

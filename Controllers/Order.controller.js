@@ -11,16 +11,17 @@ export async function create(req, res) {
     const orders4 = await Order.findOne( {user:req.body.user});
 
 console.log(orders4)
+if(orders4!=null){
     if (orders4.busket== false){
         console.log(orders4)
         await orders.save();
 
         if (orders)
-            res.status(200).json(orders);
+            res.status(201).json(orders);
         else {
-            res.status(400).json({ Message: "Can't create this Order " });
+            res.status(402).json({ Message: "Can't create this Order " });
         }
-    }else if (orders4.busket==true ){
+    }else {
         console.log(orders4)
         req.body.order_item.forEach(element =>{orders4.order_item.push(element)
         console.log(orders4)
@@ -29,14 +30,20 @@ console.log(orders4)
         
         Order.findByIdAndUpdate({_id : orders4._id},orders4).then(async newproduct => {
      
-            res.status(200).json(newproduct);
+            res.status(202).json(newproduct);
         }).catch(err =>{
             return res.status(400).json({ err: err });
         })
     
        
-    }else{
-        res.status(200).json(orders);
+    }}else{
+        await orders.save();
+
+        if (orders)
+            res.status(201).json(orders);
+        else {
+            res.status(402).json({ Message: "Can't create this Order " });
+        }
     }
     
 }
