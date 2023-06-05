@@ -19,15 +19,20 @@ export async function create(req, res) {
             res.status(400).json({ Message: "Can't create this Order " });
         }
     }else if (orders4.busket==true ){
-        orders4.orderItem.push(req.body.orderItem);
-        Order.findByIdAndUpdate({_id : req.body.id},orders4).then(async newproduct => {
+        console.log(orders4)
+        req.body.order_item.forEach(element =>{orders4.order_item.push(element)
+        console.log(orders4)
+        }
+        );
+        
+        Order.findByIdAndUpdate({_id : orders4._id},orders4).then(async newproduct => {
      
             res.status(200).json(newproduct);
         }).catch(err =>{
             return res.status(400).json({ err: err });
         })
     
-        res.status(403).json(orders);
+       
     }else{
         res.status(200).json(orders);
     }
