@@ -9,9 +9,9 @@ export async function create(req, res) {
    
     
     const orders4 = await Order.findOne( {user:req.body.user});
-orders4.busket=false
+
 console.log(orders4)
-    if (orders4.busket== true){
+    if (orders4.busket== false){
         console.log(orders4)
         await orders.save();
 
