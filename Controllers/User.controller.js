@@ -55,7 +55,7 @@ export async function getUsers(req, res) {
 export async function login(req, res) {
   var { email, password } = req.body;
   console.log(req.body)
-User.findOne({email:email}).then(async user=>{
+User.findOne({email:email.toLowerCase()}).then(async user=>{
   console.log(user)
   if (user == null) {
  res
