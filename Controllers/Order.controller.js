@@ -54,7 +54,7 @@ if (order!= null){
    
     
 }
-//confirme the order confire = true busket =false 
+//confirme the order confirme = true busket =false 
 export async function update(req, res) {
     const orders = new Order(req.body);
    
@@ -63,6 +63,22 @@ export async function update(req, res) {
         { _id: orders._id },
         orders
     );
+
+    if (newOrder == null) {
+        return res.status(400).json({ message: "not updated " });
+    } else {
+        console.log(newOrder);
+        res.status(200).json(newOrder);
+    }
+}
+export async function confirme(req, res) {
+ Order.findByIdAndUpdate({_id:req.body.id},{
+    confirmed:true,
+    busket:false
+ })
+   
+
+    
 
     if (newOrder == null) {
         return res.status(400).json({ message: "not updated " });
