@@ -123,12 +123,13 @@ export async function showprofile(req, res) {
 }
 export async function fogetpwd(req, res) {
   const code = Math.floor(Math.random() * 9999);
- 
-  User.findOneAndUpdate({ "mail": req.body.email }, { "code": code })
+ User.findOne({email :req.body.email}).then(doc => console.log(doc))
+  User.findOneAndUpdate({ email: req.body.email },{ "code": code })
             .then(doc => {
+              console.log(doc)
               var mailOptions = {
-                to: doc.mail,
-                subject: "Mot de passe oublié " + doc.fullname,
+                to: req.body.email,
+                subject: "Mot de passe oublié " ,
                 html: `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
                 <html data-editor-version="2" class="sg-campaigns" xmlns="http://www.w3.org/1999/xhtml">
                   <head>
