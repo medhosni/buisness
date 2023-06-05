@@ -29,20 +29,11 @@ if (orderItem!= null){
 }
 }
 export async function update(req, res) {
-    const orderItems = new OrderItem(req.body);
-    //orderItems.photo = `/img/${req.file.filename}`;
-
-    const newOrderItem = await orderItems.updateOne(
-        { _id: orderItems._id },
-        orderItems
-    );
-
-    if (newOrderItem == null) {
-        return res.status(400).json({ message: "not updated " });
-    } else {
-        console.log(newOrderItem);
-        res.status(200).json(newOrderItem);
-    }
+OrderItem.findByIdAndUpdate({_id :req.body.id},{ ...req.body }).then(orderitem =>{
+    res.status(200).json(orderitem)
+}).catch(err => {
+    res.status(500).json({err :err})
+})
 }
 export async function addproduct(req, res) {
     
