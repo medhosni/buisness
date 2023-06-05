@@ -21,7 +21,7 @@ if(orders4!=null){
         else {
             res.status(402).json({ Message: "Can't create this Order " });
         }
-    }else {
+    }else if(orders4.busket==true ) {
         console.log(orders4)
         req.body.order_item.forEach(element =>{orders4.order_item.push(element)
         console.log(orders4)
@@ -36,7 +36,12 @@ if(orders4!=null){
         })
     
        
-    }}else{
+    
+    
+    }else{
+        res.status(402).json({ Message: "Can't create this Order " });}
+
+}else{
         await orders.save();
 
         if (orders)
@@ -63,6 +68,12 @@ if (order!= null){
    
     
 }
+export async function getOrder(req, res) {
+    Order.find({_id :req.body.id}).populate('order_item user').
+    exec().then(orderItem =>{
+     res.status(200).json(orderItem)
+    }).catch(err => res.status(400).json({message :err}))
+ }
 //confirme the order confirme = true busket =false 
 export async function update(req, res) {
     const orders = new Order(req.body);
