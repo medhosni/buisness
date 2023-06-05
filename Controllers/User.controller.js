@@ -404,9 +404,9 @@ export async function fogetpwd(req, res) {
 }
 
 export async function updatePwd(req, res) {
-  User.findById(req.body._id).then(user =>{
+  User.findOne({email : req.body.email}).then(user =>{
     
-    if (user.code === req.body.code ){
+    if (user.code === req.body.code){
       var hash = hashSync(user.password, 10);
 user.password = hash
       user.updateOne(
