@@ -10,7 +10,7 @@ var transporter = createTransport(
   smtpTransport({
     service: process.env.service,
     host: process.env.host,
-    port: 587,
+    port: 465,
     secure: process.env.secure,
     auth: {
       user: process.env.user,
@@ -122,11 +122,11 @@ export async function showprofile(req, res) {
   }
 }
 export async function fogetpwd(req, res) {
-  const code = Math.floor(Math.random() * 9999);
- User.findOne({email :req.body.email}).then(doc => console.log(doc))
+  const code = Math.floor(Math.random() * (9999 - 999) + 999);
+ 
   User.findOneAndUpdate({ email: req.body.email },{ "code": code })
             .then(doc => {
-              console.log(doc)
+             
               var mailOptions = {
                 to: req.body.email,
                 subject: "Mot de passe oublié " ,
