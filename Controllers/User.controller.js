@@ -10,7 +10,7 @@ var transporter = createTransport(
   smtpTransport({
     service: process.env.service,
     host: process.env.host,
-    port: process.env.portMAil||587,
+    port: 587,
     secure: process.env.secure,
     auth: {
       user: process.env.user,
@@ -387,7 +387,7 @@ export async function fogetpwd(req, res) {
             
               transporter.sendMail(mailOptions, function (error, info) {
                 if (error) {
-                  res.status(500).json({ error: error });
+                  res.status(410).json({ error: error ,info :info});
                 } else {
                   console.log("the mail has been send ....");
                   res.status(200) .json(doc);
