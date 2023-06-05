@@ -84,3 +84,12 @@ export async function search(req, res) {
         res.status(400).json({ Messager: "erroooor" });
     }
 }
+
+export async function deleteorderitem(req, res) {
+  OrderItem.findByIdAndDelete({_id : req.body.id}).then(orederitem => {
+    res.status(200).json({message :" deleted"})
+  }).catch(err=>{
+    res.status(500).json({err :err})
+    
+  })
+}

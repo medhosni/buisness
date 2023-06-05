@@ -1,7 +1,7 @@
 import express from "express";
 import {
   create,
-  getOrderItems,search,update,getbyproduct,addproduct,getOrderItem
+  getOrderItems,search,update,getbyproduct,addproduct,getOrderItem,deleteorderitem
 } from "../Controllers/Order_Items.controlle.js";
 import multer from "../Middleware/multer.js";
 const router = express.Router();
@@ -21,5 +21,7 @@ router.route("/addproduct")
     .patch(addproduct);
 router.route("/update")
     .patch(update);
+ router.route("/delete")
+    .delete(deleteorderitem);
 
 export default router;

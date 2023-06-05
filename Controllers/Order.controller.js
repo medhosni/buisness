@@ -75,13 +75,17 @@ export async function confirme(req, res) {
  Order.findByIdAndUpdate({_id:req.body.id},{
     confirmed:true,
     busket:false
+ }).than(newOrder =>{
+    res.status(200).json(newOrder);
+ }).catch(err =>{
+    res.status(400).json({ message: "not updated " });
  })
    
 
     
 
     if (newOrder == null) {
-        return res.status(400).json({ message: "not updated " });
+        return 
     } else {
         console.log(newOrder);
         res.status(200).json(newOrder);
