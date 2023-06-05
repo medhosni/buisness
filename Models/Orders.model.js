@@ -8,7 +8,7 @@ var OrderModel = Schema({
     unite: Number,
     confirmed: {type:Boolean, default: false},
     isverified: {type:Boolean, default: false},
-    busket: {type:Boolean, default: false},
+    busket: {type:Boolean, default: true },
 }, { timestamps: true });
 
 

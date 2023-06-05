@@ -48,12 +48,7 @@ export async function addproduct(req, res) {
     
 
 
-    /*OrderItem.findByIdAndUpdate({_id : req.body.id},{product:product.push(req.body.product)}).then(newproduct => {
-        res.status(200).json(newproduct);
-    }).catch(err =>{
-        return res.status(400).json({ err: err });
-    })*/
-    //orderItems.photo = `/img/${req.file.filename}`;
+    
 const orderItem = await OrderItem.findById({_id:req.body.id})
 orderItem.product.push(req.body.product)
 
@@ -64,13 +59,7 @@ orderItem.product.push(req.body.product)
     }).catch(err =>{
         return res.status(400).json({ err: err });
     })
-    /*console.log(newOrderItem)
-    if (newOrderItem == null) {
-        return res.status(400).json({ message: "not updated " });
-    } else {
-        console.log(newOrderItem);
-        res.status(200).json(newOrderItem);
-    }*/
+
 }
 export async function getOrderItem(req, res) {
     OrderItem.find({}).then(orderItem =>{

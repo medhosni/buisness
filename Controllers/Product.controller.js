@@ -21,7 +21,8 @@ export async function create(req, res) {
 }
 
 export async function getProduct(req, res) {
-    Product.findById({_id: req.body.id }).then(product => {
+    Product.findById({_id: req.body.id }).populate('brand categorie').
+    exec().then(product => {
        res.status(200).json(product)
     }).catch(err =>{
        res.status(403).json({err:err})

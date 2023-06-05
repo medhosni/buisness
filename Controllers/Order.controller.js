@@ -3,7 +3,7 @@ import {} from 'dotenv/config'
 import  User  from "../Models/user.model.js";
 import  OrderItem  from "../Models/Order_item.model.js";
 
-
+//create order if not exist else if existe update order add orderitems in array of orderitems 
 export async function create(req, res) {
     const orders = new Order({ ...req.body });
    
@@ -19,6 +19,14 @@ export async function create(req, res) {
             res.status(400).json({ Message: "Can't create this Order " });
         }
     }else if (orders4.busket==true ){
+        orders4.orderItem.push(req.body.orderItem);
+        Order.findByIdAndUpdate({_id : req.body.id},orders4).then(async newproduct => {
+     
+            res.status(200).json(newproduct);
+        }).catch(err =>{
+            return res.status(400).json({ err: err });
+        })
+    
         res.status(403).json(orders);
     }else{
         res.status(200).json(orders);
@@ -41,6 +49,7 @@ if (order!= null){
    
     
 }
+//confirme the order confire = true busket =false 
 export async function update(req, res) {
     const orders = new Order(req.body);
    
