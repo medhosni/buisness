@@ -25,13 +25,13 @@ export async function createUser(req, res) {
   var hash = hashSync(users.password, 10);
   users.password = hash;
   
-  await users.save();
-
-  if (users)
+   users.save().then(newuser => {
     res.status(200).json(users);
-  else {
-    res.status(400).json({ Message: "Can't create this user " });
-  }
+   }).catch(err =>{
+    res.status(400).json({ Message: err});
+   })
+
+  
 }
 export async function createUserPhoto(req, res) {
   const users = new User({ ...req.body });
